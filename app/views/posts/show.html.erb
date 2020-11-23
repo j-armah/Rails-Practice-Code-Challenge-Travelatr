@@ -1,0 +1,10 @@
+<h1><%= @post.title %></h1>
+
+<h2>Author: <%= link_to @post.blogger.name, blogger_path(@post.blogger) %></h2>
+<h2>Destination: <%= link_to @post.destination.name, destination_path(@post.destination) %></h2>
+
+<h2> CONTENT </h2>
+<p><%= @post.content %></p>
+
+
+<%= button_to "Like post", post_path(@post), method: :patch %>
