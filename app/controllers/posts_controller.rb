@@ -24,20 +24,24 @@ class PostsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @post = Post.find(params[:id])
-  # end 
+  def edit
+    @post = Post.find(params[:id])
+    @bloggers = Blogger.all
+    @destinations = Destination.all
+
+  end 
 
   def likes
     @post = Post.find(params[:id])
     @post.likes += 1
     @post.save
-    #redirect_to post_path(@post)
+    redirect_to post_path(@post)
   end
 
   def update
     @post = Post.find(params[:id])
-    @post.update(likes: @post.likes += 1)
+    @post.update(post_params)
+    #@post.update(likes: @post.likes += 1)
     redirect_to post_path(@post)
   end
 

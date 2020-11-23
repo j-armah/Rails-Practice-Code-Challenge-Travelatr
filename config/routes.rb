@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   # get 'bloggers/create'
 
-
+patch 'like/:id', to: 'posts#likes', as: 'likes'
 
 resources :bloggers
 resources :destinations

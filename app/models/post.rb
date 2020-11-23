@@ -4,6 +4,9 @@ class Post < ApplicationRecord
 
     validates_presence_of :title
     validates :content, length: {minimum: 100}
-
+    
+    def like
+        self.likes += 1
+    end
 
 end
